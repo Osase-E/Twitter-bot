@@ -14,6 +14,8 @@ global total_tweets
 total_liked = 0
 
 total_tweets = 0
+# recommendation is a list of pretyped responses you would like the bot to tweet about
+# the list is populatesd with an external textfile to make the code easier to manage
 recommendation = []
 f = open("tweets.txt", "r", encoding="utf8")
 for x in f:
@@ -193,7 +195,7 @@ class twitter_bot:
                     pyautogui.hotkey("ctrl", "v")
                     time.sleep(random.randint(1,3))
                     if random.randint(0,2):
-                        Image("peach.gif").write("clipboard:")
+                        Image("peach.gif").write("clipboard:") # replace peach.gif with an image you would like to upload with the reply
                         pyautogui.hotkey("ctrl", "v")
                         time.sleep(random.randint(1, 3))
                         pyautogui.move(120, 0)
@@ -265,7 +267,7 @@ def execute():
             if like_time != 0:
                 if (datetime.datetime.now()-like_time).seconds < likes:
                     continue
-            like_time, likes = log.like_tweet("%23peachproject")
+            like_time, likes = log.like_tweet("") # the hashtag you would like to bot to go over and like
         else:
             if tweet_time != 0:
                 if (datetime.datetime.now()-tweet_time).seconds < tweets:
